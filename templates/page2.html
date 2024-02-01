@@ -1,0 +1,188 @@
+<!--
+ * @Author: shihan
+ * @Date: 2024-01-31 10:49:57
+ * @version: 1.0
+ * @description: 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Books Search</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffffff; /* 背景色 */
+            padding: 20px; /* 内边距 */
+            text-align: center; /* 文本居中 */
+        }
+
+                /* 全局样式 */
+        body {
+            padding: 20px; /* 页面内容的内边距 */
+        }
+
+        /* 表格样式 */
+        .stylish-table {
+            width: 100%; /* 表格宽度 */
+            border-collapse: collapse; /* 边框合并为单一线条 */
+        }
+
+        .stylish-table th, .stylish-table td {
+            text-align: left; /* 文本左对齐 */
+            padding: 8px; /* 单元格内边距 */
+        }
+
+        /* 表头样式 */
+        .stylish-table thead th {
+            background-color: #f2f2f2; /* 表头背景颜色 */
+            color: #333; /* 表头文本颜色 */
+        }
+
+        /* 表格行的交替颜色 */
+        .stylish-table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* 奇数行背景颜色 */
+        }
+
+        /* 鼠标悬停行样式 */
+        .stylish-table tbody tr:hover {
+            background-color: #ddd; /* 鼠标悬停时的背景颜色 */
+        }
+
+        /* 表格边框样式 */
+        .stylish-table th, .stylish-table td {
+            border: 1px solid #ddd; /* 单元格边框颜色和宽度 */
+        }
+
+        table {
+            width: 500px;
+            height: 100px;
+            background-color: white;
+            opacity:0.9;
+            text-align: center;
+        }
+        .but{
+            background-color: transparent;
+            border: none;
+            color: blue;
+        }
+        .but:hover{
+            text-decoration: underline;
+            color: red;
+        }
+        #tab {
+            margin-top: 2%
+        }
+
+        #find {
+            margin-top: 5%;
+            padding-right: 0;
+        }
+
+        #name,
+        #au,
+        pub {
+            width: 16%;
+        }
+
+        #num,
+        #money {
+            width: 10%;
+           
+        }
+
+        .add {
+            margin-left: 10px;
+        }
+
+        #header {
+            margin-top: 20%;
+        }
+        .icon{
+            width: 5%;
+           margin-right: 10px;
+        }
+        .conticon{
+            margin-top: -8%;
+            margin-left: 1%;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <div class="container">
+        <h1 style="position: absolute;top: 10%;left: 45%;">Books</h1>
+        <div id="header">
+           
+            <div class="col-md-12">
+                <form action="/searchfromserver" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputName2">id:</label>
+                        <input type="text" id="id" name="id" class="input-item">
+                        <label for="exampleInputName2">title:</label>
+                        <input type="text" id="title" name="title" class="input-item">
+                        <label for="exampleInputName2">author:</label>
+                        <input type="text" id="author" name="author" class="input-item">
+                        <label for="exampleInputName2">publication year:</label>
+                        <input type="number" id="pub" name="pub" class="input-item">
+                        <label for="exampleInputName2">genre:</label>
+                        <input type="text" id="genre" name="genre" class="input-item">
+                        <input type="submit" value="search" class="butt btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div style="height: 20px;"></div> <!-- 用于创建空间的空 div -->
+
+
+        <div class="col-md-12">
+            
+            <div style="display: flex; justify-content: center;">
+                <!-- <table border="1" cellspacing="0" cellpadding="0" id="tab" class="tabb table table-hover "> -->
+                <table class="stylish-table">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>author</th>
+                            <th>publication_year</th>
+                            <th>genre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.author }}</td>
+                            <td>{{ item.publication_year }}</td>
+                            <td>{{ item.genre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Company, Inc.</p>
+            <p>
+                <a href="#">Privacy</a> | 
+                <a href="#">Terms</a>
+            </p> 
+        </footer>
+
+        
+    </div>
+</div>
+
+
+
+</body>
+</html>

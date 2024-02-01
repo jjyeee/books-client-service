@@ -1,0 +1,13 @@
+venv/
+.venv/
+*.log
+*.tmp
+test_data/
+.git/
+.svn/
+.vscode/
+.idea/
+docs/
+examples/
+__pycache__
+.DS_Store
